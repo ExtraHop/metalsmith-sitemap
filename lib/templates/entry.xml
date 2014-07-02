@@ -1,0 +1,6 @@
+<url>
+    <loc>{{loc}}</loc>{{#if lastmod}}
+    <lastmod>{{lastmod}}</lastmod>{{/if}}{{#if changefreq}}
+    <changefreq>{{changefreq}}</changefreq>{{/if}}{{#if priority}}
+    <priority>{{priority}}</priority>{{/if}}
+</url>

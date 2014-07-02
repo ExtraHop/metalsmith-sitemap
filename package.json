@@ -1,0 +1,36 @@
+{
+  "name": "metalsmith-sitemap",
+  "version": "0.0.1",
+  "description": "A metalsmith plugin for generating a sitemap.xml file.",
+  "main": "lib/index.js",
+  "files": ["lib/templates"],
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/ExtraHop/metalsmith-sitemap.git"
+  },
+  "keywords": [
+    "metalsmith",
+    "sitemap"
+  ],
+  "author": {
+    "name": "ExtraHop Networks",
+    "url": "http://www.extrahop.com"
+  },
+  "contributors": [
+    {
+      "name": "Aaron Boushley"
+    }
+  ],
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/ExtraHop/metalsmith-sitemap/issues"
+  },
+  "homepage": "https://github.com/ExtraHop/metalsmith-sitemap",
+  "dependencies": {
+    "handlebars": "^2.0.0-alpha.4",
+    "lodash": "^2.4.1"
+  }
+}
