@@ -22,3 +22,12 @@ Sitemap({
 ```
 Note that the property keys (`urlProperty`, `modifiedProperty`) can use the dot syntax to traverse the front matter
 object for any given page.
+
+###Front Matter
+There are a few properties that Sitemap will use from a files front matter. The first two, mentioned above, are
+configurable. The next two are expected to be at a set location. These are page specific values for `priority` and
+`changefreq` which should be at `sitemap.priority` and `sitemap.changefreq` respectively.
+
+The last piece of front matter that the sitemap pays attention to is another way of ignoring files. If a file has
+`private` set to true in the front matter it will be skipped in the sitemap`private` set to true in the front matter it
+will be skipped inthe sitemap.
