@@ -1,6 +1,6 @@
 {
   "name": "metalsmith-sitemap",
-  "version": "0.0.4",
+  "version": "0.0.6",
   "description": "A metalsmith plugin for generating a sitemap.xml file.",
   "main": "lib/index.js",
   "scripts": {
@@ -30,6 +30,7 @@
   "homepage": "https://github.com/ExtraHop/metalsmith-sitemap",
   "dependencies": {
     "handlebars": "^2.0.0-alpha.4",
+    "to-function": "2.0.5",
     "lodash": "^2.4.1"
   }
 }
