@@ -29,8 +29,7 @@
   },
   "homepage": "https://github.com/ExtraHop/metalsmith-sitemap",
   "dependencies": {
-    "handlebars": "^2.0.0-alpha.4",
-    "lodash": "^2.4.1",
+    "lodash": "^3.9",
     "moment": "^2.8.4",
     "to-function": "2.0.5"
   }
