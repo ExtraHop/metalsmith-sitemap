@@ -31,6 +31,6 @@
   "dependencies": {
     "lodash": "^3.9",
     "moment": "^2.8.4",
-    "to-function": "2.0.5"
+    "to-function": "^2.0.6"
   }
 }
