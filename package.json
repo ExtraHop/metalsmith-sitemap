@@ -1,6 +1,6 @@
 {
   "name": "metalsmith-sitemap",
-  "version": "0.0.9",
+  "version": "0.0.10",
   "description": "A metalsmith plugin for generating a sitemap.xml file.",
   "main": "lib/index.js",
   "scripts": {
