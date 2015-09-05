@@ -90,4 +90,16 @@ describe('metalsmith-sitemap', function(){
       });
   });
 
+  it('should allow a canonical url to be set', function(done){
+    Metalsmith('test/fixtures/canonical')
+      .use(sitemap('http://www.website.com/'))
+      .build(function(err){
+        if (err) {
+          return done(err);
+        }
+        equal('test/fixtures/canonical/expected', 'test/fixtures/canonical/build');
+        done();
+      });
+  });
+
 });

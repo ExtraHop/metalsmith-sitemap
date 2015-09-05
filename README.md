@@ -68,15 +68,21 @@ Change the output file for the sitemap.
 
 ## Frontmatter
 
-The `changefreq` and `priority` settings can also be overridden on a file-to-file basis from a file's frontmatter like so:
+Some values can also be set on a file-to-file basis from a file's frontmatter, the options are:
+
+* `changefreq`: will override any other settings for `changefreq` for the current file.
+* `priority`: will override any other settings for `priority` for the current file.
+* `canonical`: will override the filename which is normally used to generate the url. As an example: you can use this to generate `http://www.website.com/` instead of `http://www.website.com/index.html` for you root page, by setting `canonical: ''`.
+
+For example:
 
 ```html
 ---
 changefreq: always
 priority: 1.0
+canonical: ''
 ---
 <!-- index.html -->
-These changefreq and priority settings will override any other settings for changefreq and priority, for this file only.
 ```
 
 ## License
