@@ -1,6 +1,0 @@
-    <url>
-        <loc><%= loc %></loc><% if (lastmod){ %>
-        <lastmod><%= lastmod %></lastmod><% } %><% if (changefreq){ %>
-        <changefreq><%= changefreq %></changefreq><% } %><% if (priority){ %>
-        <priority><%= priority %></priority><% } %>
-    </url>
