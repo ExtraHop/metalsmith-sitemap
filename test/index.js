@@ -133,4 +133,19 @@ describe('metalsmith-sitemap', function(){
       });
   });
 
+  it('should be able to omit index.html', function(done){
+    Metalsmith('test/fixtures/omitIndex')
+      .use(sitemap({
+        hostname: 'http://www.website.com/',
+        omitIndex: true
+      }))
+      .build(function(err){
+        if (err) {
+          return done(err);
+        }
+        equal('test/fixtures/omitIndex/expected', 'test/fixtures/omitIndex/build');
+        done();
+      });
+  });
+
 });

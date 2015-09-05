@@ -18,11 +18,7 @@ Configuration in `metalsmith.json`:
 {
   "plugins": {
     "metalsmith-sitemap": {
-      "changefreq": "weekly",
-      "hostname": "http://www.website.com/",
-      "output": "sitemap.xml",
-      "pattern": "**/*.html",
-      "priority": "0.5"
+      "hostname": "http://www.website.com/"
     }
   }
 }
@@ -79,11 +75,18 @@ Add a lastmodified date to the sitemap. Should be a Date object and can be passe
 
 Will remove extensions from the urls in the sitemap. Useful when you're rewriting urls.
 
+##### omitIndex
+
+* `optional`
+* `default: false`
+
+Will replace any paths ending in `index.html` with `''`. Useful when you're using [metalsmith-permalinks](https://github.com/segmentio/metalsmith-permalinks).
+
 ## Frontmatter
 
 Some values can also be set on a file-to-file basis from a file's frontmatter, the options are:
 
-* `canonical`: will override the filename used to generate the url. As an example: you can use this to generate `http://www.website.com/` instead of `http://www.website.com/index.html` for your root page, by setting `canonical: ''`.
+* `canonical`: will override the filename used to generate the url.
 * `changefreq`: will override any other settings for `changefreq` for the current file.
 * `lastmod`: will override any other settings for `lastmod` for the current file.
 * `priority`: will override any other settings for `priority` for the current file.
@@ -92,7 +95,7 @@ For example:
 
 ```html
 ---
-canonical: ''
+canonical: 'different'
 changefreq: always
 lastmod: 2014-12-01
 priority: 1.0
