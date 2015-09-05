@@ -44,12 +44,13 @@ describe('metalsmith-sitemap', function(){
       });
   });
 
-  it('should allow changefreq and priority to be overridden from the frontmatter', function(done){
+  it('should allow settings to be overridden from the frontmatter', function(done){
     Metalsmith('test/fixtures/frontmatter')
       .use(sitemap({
         hostname: 'http://www.website.com/',
         changefreq: 'never',
-        priority: '0.0'
+        priority: '0.0',
+        lastmod: new Date()
       }))
       .build(function(err){
         if (err) {
@@ -98,6 +99,21 @@ describe('metalsmith-sitemap', function(){
           return done(err);
         }
         equal('test/fixtures/canonical/expected', 'test/fixtures/canonical/build');
+        done();
+      });
+  });
+
+  it('should allow lastmod to be set', function(done){
+    Metalsmith('test/fixtures/lastmod')
+      .use(sitemap({
+        hostname: 'http://www.website.com/',
+        lastmod: new Date('1995-12-17T03:24:00')
+      }))
+      .build(function(err){
+        if (err) {
+          return done(err);
+        }
+        equal('test/fixtures/lastmod/expected', 'test/fixtures/lastmod/build');
         done();
       });
   });

@@ -18,11 +18,11 @@ Configuration in `metalsmith.json`:
 {
   "plugins": {
     "metalsmith-sitemap": {
-      "hostname": "http://www.website.com/",
-      "priority": "0.5",
       "changefreq": "weekly",
+      "hostname": "http://www.website.com/",
+      "output": "sitemap.xml",
       "pattern": "**/*.html",
-      "output": "sitemap.xml"
+      "priority": "0.5"
     }
   }
 }
@@ -66,21 +66,29 @@ Change the default [priority](http://www.sitemaps.org/protocol.html).
 
 Change the output file for the sitemap.
 
+##### lastmod
+
+* `optional`
+
+Add a lastmodified date to the sitemap. Should be a Date object and can be passed through the Javascript API or the frontmatter.
+
 ## Frontmatter
 
 Some values can also be set on a file-to-file basis from a file's frontmatter, the options are:
 
+* `canonical`: will override the filename used to generate the url. As an example: you can use this to generate `http://www.website.com/` instead of `http://www.website.com/index.html` for your root page, by setting `canonical: ''`.
 * `changefreq`: will override any other settings for `changefreq` for the current file.
+* `lastmod`: will override any other settings for `lastmod` for the current file.
 * `priority`: will override any other settings for `priority` for the current file.
-* `canonical`: will override the filename which is normally used to generate the url. As an example: you can use this to generate `http://www.website.com/` instead of `http://www.website.com/index.html` for you root page, by setting `canonical: ''`.
 
 For example:
 
 ```html
 ---
-changefreq: always
-priority: 1.0
 canonical: ''
+changefreq: always
+lastmod: 2014-12-01
+priority: 1.0
 ---
 <!-- index.html -->
 ```
