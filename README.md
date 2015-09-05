@@ -72,6 +72,13 @@ Change the output file for the sitemap.
 
 Add a lastmodified date to the sitemap. Should be a Date object and can be passed through the Javascript API or the frontmatter.
 
+##### omitExtension
+
+* `optional`
+* `default: false`
+
+Will remove extensions from the urls in the sitemap. Useful when you're rewriting urls.
+
 ## Frontmatter
 
 Some values can also be set on a file-to-file basis from a file's frontmatter, the options are:

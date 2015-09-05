@@ -118,4 +118,19 @@ describe('metalsmith-sitemap', function(){
       });
   });
 
+  it('should be able to omit extensions', function(done){
+    Metalsmith('test/fixtures/omitExtension')
+      .use(sitemap({
+        hostname: 'http://www.website.com/',
+        omitExtension: true
+      }))
+      .build(function(err){
+        if (err) {
+          return done(err);
+        }
+        equal('test/fixtures/omitExtension/expected', 'test/fixtures/omitExtension/build');
+        done();
+      });
+  });
+
 });
