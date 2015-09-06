@@ -148,4 +148,16 @@ describe('metalsmith-sitemap', function(){
       });
   });
 
+  it('should ignore files marked as private', function(done){
+    Metalsmith('test/fixtures/private')
+      .use(sitemap('http://www.website.com/'))
+      .build(function(err){
+        if (err) {
+          return done(err);
+        }
+        equal('test/fixtures/private/expected', 'test/fixtures/private/build');
+        done();
+      });
+  });
+
 });

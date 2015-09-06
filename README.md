@@ -86,10 +86,11 @@ Will replace any paths ending in `index.html` with `''`. Useful when you're usin
 
 Some values can also be set on a file-to-file basis from a file's frontmatter, the options are:
 
-* `canonical`: will override the filename used to generate the url.
+* `canonical`: will override the filename used to generate the url. The path is relative to the hostname.
 * `changefreq`: will override any other settings for `changefreq` for the current file.
 * `lastmod`: will override any other settings for `lastmod` for the current file.
 * `priority`: will override any other settings for `priority` for the current file.
+* `private`: will exclude the file from the sitemap when set to true.
 
 For example:
 
@@ -99,6 +100,7 @@ canonical: 'different'
 changefreq: always
 lastmod: 2014-12-01
 priority: 1.0
+private: true
 ---
 <!-- index.html -->
 ```
