@@ -18,7 +18,7 @@ Configuration in `metalsmith.json`:
 {
   "plugins": {
     "metalsmith-sitemap": {
-      "hostname": "http://www.website.com/"
+      "hostname": "http://www.website.com"
     }
   }
 }
@@ -32,7 +32,7 @@ You can pass options to `metalsmith-sitemap` with the [Javascript API](https://g
 
 * `required`
 
-The hostname used for generating the urls. The url must have a trailing slash.
+The hostname used for generating the urls.
 
 ##### changefreq
 
