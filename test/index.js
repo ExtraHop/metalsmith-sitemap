@@ -107,7 +107,7 @@ describe('metalsmith-sitemap', function(){
     Metalsmith('test/fixtures/lastmod')
       .use(sitemap({
         hostname: 'http://www.website.com/',
-        lastmod: new Date('1995-12-17T03:24:00')
+        lastmod: new Date('1995-12-17T12:24:00')
       }))
       .build(function(err){
         if (err) {
