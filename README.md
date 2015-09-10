@@ -1,34 +1,110 @@
-metalsmith-sitemap
-==========================
-This provides a [metalsmith](http://www.metalsmith.io/) plugin to generate a sitemap according to the
-[Sitemaps Protocol](http://www.sitemaps.org/protocol.html). There are four pieces of information possible for on any page.
-The URL of the page (loc), the last modified date (lastmod), the change frequency (changefreq) and the priority. loc is
-the only value that is required.
+# metalsmith-sitemap
 
-###Options
+> A metalsmith plugin for generating a sitemap
+
+This plugin allows you to generate a [sitemap.xml](http://www.sitemaps.org/protocol.html) from your source files. By default it looks for any `.html` files and processes them with [sitemap.js](https://github.com/ekalinin/sitemap.js).
+
+## Installation
+
+```bash
+$ npm install metalsmith-sitemap
 ```
-var Sitemap = require('metalsmith-sitemap');
 
-Sitemap({
-    ignoreFiles: [/test.xml/], // Matched files will be ignored
-    output: 'sitemap.xml', // The location where the final sitemap should be placed
-    urlProperty: 'seo.canonical', // Key for URL property
-    hostname: 'http://www.metalsmith.io', // hostname to use for URL, if needed
-    modifiedProperty: 'modified', // Key for last modified property
-    defaults: { // You can provide default values for any property in here
-        priority: 0.5,
-        changefreq: 'daily'
+## Example
+
+Configuration in `metalsmith.json`:
+
+```json
+{
+  "plugins": {
+    "metalsmith-sitemap": {
+      "hostname": "http://www.website.com"
     }
-})
+  }
+}
 ```
-Note that the property keys (`urlProperty`, `modifiedProperty`) can use the dot syntax to traverse the front matter
-object for any given page.
 
-###Front Matter
-There are a few properties that Sitemap will use from a files front matter. The first two, mentioned above, are
-configurable. The next two are expected to be at a set location. These are page specific values for `priority` and
-`changefreq` which should be at `sitemap.priority` and `sitemap.changefreq` respectively.
+## Options
 
-The last piece of front matter that the sitemap pays attention to is another way of ignoring files. If a file has
-`private` set to true in the front matter it will be skipped in the sitemap`private` set to true in the front matter it
-will be skipped inthe sitemap.
+You can pass options to `metalsmith-sitemap` with the [Javascript API](https://github.com/segmentio/metalsmith#api) or [CLI](https://github.com/segmentio/metalsmith#cli). The options are:
+
+##### hostname
+
+* `required`
+
+The hostname used for generating the urls.
+
+##### changefreq
+
+* `optional`
+* `default: weekly`
+
+Change the default [changefreq](http://www.sitemaps.org/protocol.html).
+
+##### pattern
+
+* `optional`
+* `default: '**/*.html'`
+
+A [multimatch](https://github.com/sindresorhus/multimatch) pattern. Only files that match this pattern will be included in the sitemap. Can be a string or an array of strings.
+
+##### priority
+
+* `optional`
+* `default: '0.5'`
+
+Change the default [priority](http://www.sitemaps.org/protocol.html).
+
+##### output
+
+* `optional`
+* `default: 'sitemap.xml'`
+
+Change the output file for the sitemap.
+
+##### lastmod
+
+* `optional`
+
+Add a lastmodified date to the sitemap. Should be a Date object and can be passed through the Javascript API or the frontmatter.
+
+##### omitExtension
+
+* `optional`
+* `default: false`
+
+Will remove extensions from the urls in the sitemap. Useful when you're rewriting urls.
+
+##### omitIndex
+
+* `optional`
+* `default: false`
+
+Will replace any paths ending in `index.html` with `''`. Useful when you're using [metalsmith-permalinks](https://github.com/segmentio/metalsmith-permalinks).
+
+## Frontmatter
+
+Some values can also be set on a file-to-file basis from a file's frontmatter, the options are:
+
+* `canonical`: will override the filename used to generate the url. The path is relative to the hostname.
+* `changefreq`: will override any other settings for `changefreq` for the current file.
+* `lastmod`: will override any other settings for `lastmod` for the current file.
+* `priority`: will override any other settings for `priority` for the current file.
+* `private`: will exclude the file from the sitemap when set to true.
+
+For example:
+
+```html
+---
+canonical: 'different'
+changefreq: always
+lastmod: 2014-12-01
+priority: 1.0
+private: true
+---
+<!-- index.html -->
+```
+
+## License
+
+MIT
