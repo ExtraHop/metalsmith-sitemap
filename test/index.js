@@ -118,6 +118,22 @@ describe('metalsmith-sitemap', function(){
       });
   });
 
+  it('should allow a canonical url and lastmod to be set from custom property', function(done){
+    Metalsmith('test/fixtures/custom-frontmatter')
+      .use(sitemap({
+        hostname: 'http://www.website.com',
+        modifiedProperty: 'lastModified',
+        urlProperty: 'seo.canonical'
+      }))
+      .build(function(err){
+        if (err) {
+          return done(err);
+        }
+        equal('test/fixtures/custom-frontmatter/expected', 'test/fixtures/custom-frontmatter/build');
+        done();
+      });
+  });
+
   it('should be able to omit extensions', function(done){
     Metalsmith('test/fixtures/omitExtension')
       .use(sitemap({

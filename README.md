@@ -82,6 +82,20 @@ Will remove extensions from the urls in the sitemap. Useful when you're rewritin
 
 Will replace any paths ending in `index.html` with `''`. Useful when you're using [metalsmith-permalinks](https://github.com/segmentio/metalsmith-permalinks).
 
+##### modifiedProperty
+
+* `optional`
+* `default: lastmod`
+
+Allows you to choose which property to use as the last modified string. This accepts nested properties in dot notation via [loadsh.get](https://lodash.com/docs#get).
+
+##### urlProperty
+
+* `optional`
+* `default: canonical`
+
+Allows you to choose which property to use as the canonical url in the frontmatter. This accepts nested properties in dot notation via [loadsh.get](https://lodash.com/docs#get).
+
 ## Frontmatter
 
 Some values can also be set on a file-to-file basis from a file's frontmatter, the options are:
