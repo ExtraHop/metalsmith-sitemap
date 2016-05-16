@@ -87,14 +87,14 @@ Will replace any paths ending in `index.html` with `''`. Useful when you're usin
 * `optional`
 * `default: lastmod`
 
-Allows you to choose which property to use as the last modified string. This accepts nested properties in dot notation via [loadsh.get](https://lodash.com/docs#get).
+Allows you to choose which property to use as the last modified string. This accepts nested properties in dot notation via [lodash.get](https://lodash.com/docs#get).
 
 ##### urlProperty
 
 * `optional`
 * `default: canonical`
 
-Allows you to choose which property to use as the canonical url in the frontmatter. This accepts nested properties in dot notation via [loadsh.get](https://lodash.com/docs#get).
+Allows you to choose which property to use as the canonical url in the frontmatter. This accepts nested properties in dot notation via [lodash.get](https://lodash.com/docs#get).
 
 ## Frontmatter
 
