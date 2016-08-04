@@ -68,6 +68,12 @@ Change the output file for the sitemap.
 
 Add a lastmodified date to the sitemap. Should be a Date object and can be passed through the Javascript API or the frontmatter.
 
+##### links
+
+* `optional`
+
+Allows you define which field to use [for alternative language pages](https://github.com/ekalinin/sitemap.js#example-of-indicating-alternate-language-pages). This accepts nested properties in dot notation via [lodash.get](https://lodash.com/docs#get).
+
 ##### omitExtension
 
 * `optional`
