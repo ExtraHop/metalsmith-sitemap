@@ -4,7 +4,7 @@
   "description": "A metalsmith plugin for generating a sitemap.xml file.",
   "main": "lib/index.js",
   "scripts": {
-    "test": "make test"
+    "test": "mocha test"
   },
   "repository": {
     "type": "git",

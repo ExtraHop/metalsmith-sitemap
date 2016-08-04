@@ -33,7 +33,7 @@ describe('metalsmith-sitemap', function(){
       .use(sitemap({
         hostname: 'http://www.website.com/',
         changefreq: 'never',
-        priority: '0.0'
+        priority: 0.1
       }))
       .build(function(err){
         if (err) {
@@ -49,7 +49,7 @@ describe('metalsmith-sitemap', function(){
       .use(sitemap({
         hostname: 'http://www.website.com/',
         changefreq: 'never',
-        priority: '0.0',
+        priority: 0.1,
         lastmod: new Date()
       }))
       .build(function(err){
