@@ -118,12 +118,13 @@ describe('metalsmith-sitemap', function(){
       });
   });
 
-  it('should allow a canonical url and lastmod to be set from custom property', function(done){
+  it('should allow a canonical url, lastmod and priority to be set from custom property', function(done){
     Metalsmith('test/fixtures/custom-frontmatter')
       .use(sitemap({
         hostname: 'http://www.website.com',
         modifiedProperty: 'lastModified',
-        urlProperty: 'seo.canonical'
+        urlProperty: 'seo.canonical',
+        priorityProperty: 'order'
       }))
       .build(function(err){
         if (err) {

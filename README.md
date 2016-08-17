@@ -103,6 +103,13 @@ Allows you to choose which property to use as the canonical url in the frontmatt
 
 Allows you to choose which property to use for ignoring a file in the frontmatter. This accepts nested properties in dot notation via [lodash.get](https://lodash.com/docs#get).
 
+##### priorityProperty
+
+* `optional`
+* `default: priority`
+
+Allows you to choose which property to use for your sitemap priority in the frontmatter. This accepts nested properties in dot notation via [lodash.get](https://lodash.com/docs#get).
+
 
 ## Frontmatter
 
