@@ -96,6 +96,14 @@ Allows you to choose which property to use as the last modified string. This acc
 
 Allows you to choose which property to use as the canonical url in the frontmatter. This accepts nested properties in dot notation via [lodash.get](https://lodash.com/docs#get).
 
+##### privateProperty
+
+* `optional`
+* `default: private`
+
+Allows you to choose which property to use for ignoring a file in the frontmatter. This accepts nested properties in dot notation via [lodash.get](https://lodash.com/docs#get).
+
+
 ## Frontmatter
 
 Some values can also be set on a file-to-file basis from a file's frontmatter, the options are:
