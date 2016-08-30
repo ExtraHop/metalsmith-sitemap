@@ -72,7 +72,7 @@ Add a lastmodified date to the sitemap. Should be a Date object and can be passe
 
 * `optional`
 
-Allows you define which field to use [for alternative language pages](https://github.com/ekalinin/sitemap.js#example-of-indicating-alternate-language-pages). This accepts nested properties in dot notation via [lodash.get](https://lodash.com/docs#get).
+Allows you to define [alternate language pages](https://github.com/ekalinin/sitemap.js#example-of-indicating-alternate-language-pages). This accepts nested properties in dot notation via [lodash.get](https://lodash.com/docs#get).
 
 ##### omitExtension
 
