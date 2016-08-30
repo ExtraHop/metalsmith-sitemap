@@ -1,4 +1,6 @@
 # metalsmith-sitemap
+[![npm version][npm-badge]][npm-url]
+[![Build Status][travis-badge]][travis-url]
 
 > A metalsmith plugin for generating a sitemap
 
@@ -137,3 +139,10 @@ private: true
 ## License
 
 MIT
+
+
+[npm-badge]: https://img.shields.io/npm/v/metalsmith-sitemap.svg
+[npm-url]: https://www.npmjs.com/package/metalsmith-sitemap
+
+[travis-badge]: https://travis-ci.org/ExtraHop/metalsmith-sitemap.svg?branch=master
+[travis-url]: https://travis-ci.org/ExtraHop/metalsmith-sitemap
