@@ -177,4 +177,19 @@ describe('metalsmith-sitemap', function(){
       });
   });
 
+  it('should handle files with links', function(done){
+    Metalsmith('test/fixtures/links')
+      .use(sitemap({
+        hostname: 'http://www.website.com/',
+        links: 'links'
+      }))
+      .build(function(err){
+        if (err) {
+          return done(err);
+        }
+        equal('test/fixtures/links/expected', 'test/fixtures/links/build');
+        done();
+      });
+  });
+
 });
