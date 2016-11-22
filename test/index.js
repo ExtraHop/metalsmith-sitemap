@@ -192,4 +192,15 @@ describe('metalsmith-sitemap', function(){
       });
   });
 
+  it('should replace win32 backslash by slash', function(done){
+    Metalsmith('test/fixtures/win32-backslash')
+      .use(sitemap('http://www.website.com/'))
+      .build(function(err){
+        if (err) {
+          return done(err);
+        }
+        equal('test/fixtures/win32-backslash/expected', 'test/fixtures/win32-backslash/build');
+        done();
+      });
+  });
 });
