@@ -34,12 +34,11 @@
     "lodash.identity": "^3.0.0",
     "lodash.pick": "^3.1.0",
     "multimatch": "^2.0.0",
-    "sitemap": "^1.1.1",
-    "string": "^3.3.1"
+    "sitemap": "^1.1.1"
   },
   "devDependencies": {
     "assert-dir-equal": "^1.0.1",
-    "metalsmith": "^1.7.0",
-    "mocha": "^2.2.5"
+    "metalsmith": "^2.3.0",
+    "mocha": "^5.1.1"
   }
 }
