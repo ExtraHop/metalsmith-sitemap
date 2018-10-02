@@ -3,8 +3,17 @@
   "version": "1.2.2",
   "description": "A metalsmith plugin for generating a sitemap.xml file.",
   "main": "lib/index.js",
+  "module": "lib/index.mjs",
+  "files": [
+    "lib"
+  ],
+  "types": "lib/index.d.ts",
   "scripts": {
-    "test": "mocha test"
+    "clean": "rimraf lib test/fixtures/**/build",
+    "prepare": "npm run build",
+    "prepublishOnly": "npm test",
+    "build": "rollup -c",
+    "test": "jest"
   },
   "repository": {
     "type": "git",
@@ -21,6 +30,9 @@
   "contributors": [
     {
       "name": "Aaron Boushley"
+    },
+    {
+      "name": "Nick Braun"
     }
   ],
   "license": "MIT",
@@ -28,6 +40,17 @@
     "url": "https://github.com/ExtraHop/metalsmith-sitemap/issues"
   },
   "homepage": "https://github.com/ExtraHop/metalsmith-sitemap",
+  "jest": {
+    "transform": {
+      ".(ts|tsx|js)": "ts-jest"
+    },
+    "testRegex": "(/__tests__/.*|\\.(test|spec))\\.(ts|tsx|js)$",
+    "moduleFileExtensions": [
+      "ts",
+      "tsx",
+      "js"
+    ]
+  },
   "dependencies": {
     "is": "^3.0.1",
     "lodash.get": "^3.7.0",
@@ -37,8 +60,14 @@
     "sitemap": "^1.1.1"
   },
   "devDependencies": {
+    "@types/jest": "^23.3.2",
     "assert-dir-equal": "^1.0.1",
+    "jest": "^23.6.0",
     "metalsmith": "^2.3.0",
-    "mocha": "^5.1.1"
+    "rimraf": "^2.6.2",
+    "rollup": "^0.65.2",
+    "rollup-plugin-typescript2": "^0.17.0",
+    "ts-jest": "^23.10.3",
+    "typescript": "^3.0.3"
   }
 }

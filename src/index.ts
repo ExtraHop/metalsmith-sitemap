@@ -1,46 +1,43 @@
 /**
  * Dependencies
  */
-var identity = require('lodash.identity');
-var get = require('lodash.get');
-var is = require('is');
-var match = require('multimatch');
-var path = require('path');
-var pick = require('lodash.pick');
-var sm = require('sitemap');
+var identity = require("lodash.identity");
+var get = require("lodash.get");
+var is = require("is");
+var match = require("multimatch");
+var path = require("path");
+var pick = require("lodash.pick");
+var sm = require("sitemap");
 
-/**
- * Export plugin
- */
-module.exports = plugin;
+interface Options {
+  hostname: string;
+  lastmod?: Date;
+  changefreq?: string;
+  links?: string;
+  omitExtension?: boolean;
+  omitIndex?: boolean;
+  output?: string;
+  pattern?: string[];
+  priority?: string | number;
+  urlProperty?: string;
+  modifiedProperty?: string;
+  privateProperty?: string;
+  priorityProperty?: string;
+}
 
 /**
  * Metalsmith plugin for generating a sitemap.
- *
- * @param {String or Object} options
- *   @property {Date} lastmod (optional)
- *   @property {String} links (optional)
- *   @property {String} changefreq (optional)
- *   @property {Boolean} omitExtension (optional)
- *   @property {Boolean} omitIndex (optional)
- *   @property {String} hostname
- *   @property {String} output (optional)
- *   @property {String} pattern (optional)
- *   @property {String} priority (optional)
- *   @property {String} urlProperty (optional)
- *   @property {String} modifiedProperty (optional)
- *   @property {String} privateProperty (optional)
- *   @property {String} priorityProperty (optional)
- * @return {Function}
  */
-function plugin(opts){
+const plugin = (
+  opts: Options | string
+): ((files: object, metalsmith: object, done: () => void) => void) => {
   /**
    * Init
    */
-  opts = opts || {};
+  opts = opts || { hostname: "" };
 
   // Accept string option to specify the hostname
-  if (typeof opts === 'string') {
+  if (typeof opts === "string") {
     opts = { hostname: opts };
   }
 
@@ -56,20 +53,20 @@ function plugin(opts){
   var links = opts.links;
   var omitExtension = opts.omitExtension;
   var omitIndex = opts.omitIndex;
-  var output = opts.output || 'sitemap.xml';
-  var pattern = opts.pattern || '**/*.html';
+  var output = opts.output || "sitemap.xml";
+  var pattern = opts.pattern || "**/*.html";
   var priority = opts.priority;
-  var urlProperty = opts.urlProperty || 'canonical';
-  var modifiedProperty = opts.modifiedProperty || 'lastmod';
-  var privateProperty = opts.privateProperty || 'private';
-  var priorityProperty = opts.priorityProperty || 'priority'; 
+  var urlProperty = opts.urlProperty || "canonical";
+  var modifiedProperty = opts.modifiedProperty || "lastmod";
+  var privateProperty = opts.privateProperty || "private";
+  var priorityProperty = opts.priorityProperty || "priority";
 
   /**
    * Main plugin function
    */
-  return function(files, metalsmith, done) {
+  return (files: object, metalsmith: object, done: () => void) => {
     // Create sitemap object
-    var sitemap = sm.createSitemap ({
+    var sitemap = sm.createSitemap({
       hostname: hostname
     });
 
@@ -97,7 +94,7 @@ function plugin(opts){
       }
 
       // Remove index.html if necessary
-      var indexFile = 'index.html';
+      var indexFile = "index.html";
       if (omitIndex && path.basename(file) === indexFile) {
         return replaceBackslash(file.slice(0, 0 - indexFile.length));
       }
@@ -125,12 +122,15 @@ function plugin(opts){
       }
 
       // Create the sitemap entry (reject keys with falsy values)
-      var entry = pick({
-        changefreq: frontmatter.changefreq || changefreq,
-        priority: get(frontmatter, priorityProperty) || priority,
-        lastmod: get(frontmatter, modifiedProperty) || lastmod,
-        links: get(frontmatter, links)
-      }, identity);
+      var entry = pick(
+        {
+          changefreq: frontmatter.changefreq || changefreq,
+          priority: get(frontmatter, priorityProperty) || priority,
+          lastmod: get(frontmatter, modifiedProperty) || lastmod,
+          links: get(frontmatter, links)
+        },
+        identity
+      );
 
       // Add the url (which is allowed to be falsy)
       entry.url = buildUrl(file, frontmatter);
@@ -146,4 +146,6 @@ function plugin(opts){
 
     done();
   };
-}
+};
+
+export default plugin;
