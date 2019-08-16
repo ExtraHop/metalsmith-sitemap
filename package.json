@@ -21,6 +21,9 @@
   "contributors": [
     {
       "name": "Aaron Boushley"
+    },
+    {
+      "name": "Woody Goodricke"
     }
   ],
   "license": "MIT",
@@ -31,6 +34,7 @@
   "dependencies": {
     "is": "^3.0.1",
     "lodash.get": "^3.7.0",
+    "lodash.groupby": "^4.6.0",
     "lodash.identity": "^3.0.0",
     "lodash.pick": "^3.1.0",
     "multimatch": "^2.0.0",
