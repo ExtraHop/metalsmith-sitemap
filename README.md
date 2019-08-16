@@ -118,6 +118,14 @@ Allows you to choose which property to use for ignoring a file in the frontmatte
 
 Allows you to choose which property to use for your sitemap priority in the frontmatter. This accepts nested properties in dot notation via [lodash.get](https://lodash.com/docs#get).
 
+##### groupby
+
+* `optional`
+
+Allows multiple sitemap files to be created by grouping by a property. This accepts nested properties in dot notation via [lodash.get](https://lodash.com/docs#get).
+
+The sitemap index will be `sitemap.xml` which will reference the grouped sitemaps with the form `sitemap-{groupby value}.xml`.
+
 
 ## Frontmatter
 
