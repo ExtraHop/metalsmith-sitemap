@@ -203,4 +203,19 @@ describe('metalsmith-sitemap', function(){
         done();
       });
   });
+
+  it('should allow grouping', done => {
+    Metalsmith('test/fixtures/groupby')
+      .use(sitemap({
+        hostname: 'http://www.website.com/',
+        groupby: 'lang'
+      }))
+      .build(err => {
+        if (err) {
+          return done(err);
+        }
+        equal('test/fixtures/groupby/expected', 'test/fixtures/groupby/build');
+        done();
+      });
+  });
 });
