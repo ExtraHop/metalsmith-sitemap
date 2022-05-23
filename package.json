@@ -4,7 +4,10 @@
   "description": "A metalsmith plugin for generating a sitemap.xml file.",
   "main": "lib/index.js",
   "scripts": {
-    "test": "mocha test"
+    "test": "mocha test",
+    "lint": "eslint --fix .",
+    "format": "prettier --write \"**/*.{yml,md,js,json}\"",
+    "changelog": "auto-changelog -u --commit-limit false"
   },
   "repository": {
     "type": "git",
@@ -12,6 +15,7 @@
   },
   "keywords": [
     "metalsmith",
+    "metalsmith-plugin",
     "sitemap"
   ],
   "author": {
@@ -21,24 +25,42 @@
   "contributors": [
     {
       "name": "Aaron Boushley"
-    }
+    },
+    "Kevin Van Lierde (https://webketje.com)"
   ],
   "license": "MIT",
   "bugs": {
     "url": "https://github.com/ExtraHop/metalsmith-sitemap/issues"
   },
   "homepage": "https://github.com/ExtraHop/metalsmith-sitemap",
+  "directories": {
+    "lib": "lib",
+    "test": "test"
+  },
+  "files": [
+    "lib/index.js",
+    "CHANGELOG.md"
+  ],
   "dependencies": {
     "is": "^3.0.1",
     "lodash.get": "^3.7.0",
     "lodash.identity": "^3.0.0",
     "lodash.pick": "^3.1.0",
-    "multimatch": "^2.0.0",
     "sitemap": "^1.1.1"
   },
   "devDependencies": {
     "assert-dir-equal": "^1.0.1",
+    "auto-changelog": "^2.4.0",
+    "eslint": "^8.16.0",
+    "eslint-config-prettier": "^8.5.0",
     "metalsmith": "^2.3.0",
-    "mocha": "^5.1.1"
+    "mocha": "^9.2.2",
+    "prettier": "^2.6.2"
+  },
+  "peerDependencies": {
+    "metalsmith": "^2.4.1"
+  },
+  "engines": {
+    "node": ">=8"
   }
 }
