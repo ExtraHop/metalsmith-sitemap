@@ -10,8 +10,16 @@ This plugin allows you to generate a [sitemap.xml](http://www.sitemaps.org/proto
 
 ## Installation
 
+NPM:
+
 ```bash
 npm install metalsmith-sitemap
+```
+
+Yarn:
+
+```bash
+yarn add metalsmith-sitemap
 ```
 
 ## Example
@@ -76,7 +84,7 @@ Add a lastmodified date to the sitemap. Should be a Date object and can be passe
 
 - `optional`
 
-Allows you to define [alternate language pages](https://github.com/ekalinin/sitemap.js#example-of-indicating-alternate-language-pages). This accepts nested properties in dot notation via [lodash.get](https://lodash.com/docs#get).
+Allows you to define [alternate language pages](https://github.com/ekalinin/sitemap.js/blob/6.4.0/api.md#sitemap-item-options). This accepts nested properties in dot notation via [lodash.get](https://lodash.com/docs#get).
 
 ##### omitExtension
 
@@ -90,7 +98,7 @@ Will remove extensions from the urls in the sitemap. Useful when you're rewritin
 - `optional`
 - `default: false`
 
-Will replace any paths ending in `index.html` with `''`. Useful when you're using [metalsmith-permalinks](https://github.com/segmentio/metalsmith-permalinks).
+Will replace any paths ending in `index.html` with `''`. Useful when you're using [@metalsmith/permalinks](https://github.com/metalsmith/permalinks).
 
 ##### modifiedProperty
 

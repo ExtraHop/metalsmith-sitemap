@@ -42,14 +42,13 @@
     "CHANGELOG.md"
   ],
   "dependencies": {
-    "is": "^3.0.1",
-    "lodash.get": "^3.7.0",
+    "lodash.get": "^4.4.2",
     "lodash.identity": "^3.0.0",
-    "lodash.pick": "^3.1.0",
-    "sitemap": "^1.1.1"
+    "lodash.pickby": "^4.6.0",
+    "sitemap": "^6.4.0"
   },
   "devDependencies": {
-    "assert-dir-equal": "^1.0.1",
+    "assert-dir-equal": "^1.1.0",
     "auto-changelog": "^2.4.0",
     "eslint": "^8.16.0",
     "eslint-config-prettier": "^8.5.0",
@@ -61,6 +60,6 @@
     "metalsmith": "^2.4.1"
   },
   "engines": {
-    "node": ">=8"
+    "node": ">=10.3.0"
   }
 }
