@@ -116,7 +116,7 @@ describe('metalsmith-sitemap', function () {
       .use(
         sitemap({
           hostname: 'http://www.website.com/',
-          lastmod: new Date('1995-12-17T12:24:00')
+          lastmod: new Date('1995-12-17T11:24:00.000Z')
         })
       )
       .build(function (err) {
