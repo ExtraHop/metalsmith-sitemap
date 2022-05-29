@@ -2,7 +2,7 @@
 
 [![metalsmith: plugin][metalsmith-badge]][metalsmith-url]
 [![npm version][npm-badge]][npm-url]
-[![Build Status][travis-badge]][travis-url]
+[![Build Status][ci-badge]][ci-url]
 
 > A metalsmith plugin for generating a sitemap
 
@@ -158,7 +158,7 @@ private: true
 
 [npm-badge]: https://img.shields.io/npm/v/metalsmith-sitemap.svg
 [npm-url]: https://www.npmjs.com/package/metalsmith-sitemap
-[travis-badge]: https://travis-ci.org/ExtraHop/metalsmith-sitemap.svg?branch=master
-[travis-url]: https://travis-ci.org/ExtraHop/metalsmith-sitemap
+[ci-badge]: https://github.com/ExtraHop/metalsmith-sitemap/actions/workflows/test.yml/badge.svg
+[ci-url]: https://github.com/ExtraHop/metalsmith-sitemap/actions/workflows/test.yml
 [metalsmith-badge]: https://img.shields.io/badge/metalsmith-plugin-mediumgreen.svg?longCache=true
 [metalsmith-url]: https://metalsmith.io

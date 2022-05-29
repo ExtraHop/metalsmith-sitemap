@@ -5,8 +5,10 @@
   "main": "lib/index.js",
   "scripts": {
     "test": "mocha test",
-    "lint": "eslint --fix .",
     "format": "prettier --write \"**/*.{yml,md,js,json}\"",
+    "format:check": "prettier --list-different \"**/*.{yml,md,js,json}\"",
+    "lint": "eslint --fix .",
+    "lint:check": "eslint --fix-dry-run .",
     "changelog": "auto-changelog -u --commit-limit false"
   },
   "repository": {
