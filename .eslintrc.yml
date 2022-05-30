@@ -1,0 +1,13 @@
+env:
+  node: true
+  es6: true
+extends:
+  - 'eslint:recommended'
+  - 'prettier'
+parserOptions:
+  ecmaVersion: 2020
+rules:
+  no-console: error
+  prefer-const: error
+  no-var: error
+  no-use-before-define: error
